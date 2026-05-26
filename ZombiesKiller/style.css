@@ -1,0 +1,341 @@
+/* ========== VARIABLES GLOBALES ========== */
+:root {
+  --ui-scale: 1;        /* Factor de escala de la interfaz (control deslizante) */
+  --bg: #0b0f14;        /* Fondo principal (negro azulado) */
+  --panel: #121a24;     /* Color de los paneles (gris oscuro) */
+  --accent: #ff5a3c;    /* Color de acento (rojo sangre) */
+  --text: #e8e8e8;      /* Texto claro */
+  --text-sec: #b0c4de;  /* Texto secundario */
+  --xp-bar: #6aff9b;    /* Color de la barra de XP (verde neón) */
+}
+
+/* ========== SCROLLBAR PERSONALIZADA ========== */
+::-webkit-scrollbar {
+  width: calc(10px * var(--ui-scale));
+  height: calc(10px * var(--ui-scale));
+}
+::-webkit-scrollbar-track {
+  background: #1e2a36;
+  border-radius: calc(10px * var(--ui-scale));
+}
+::-webkit-scrollbar-thumb {
+  background: var(--accent);
+  border-radius: calc(10px * var(--ui-scale));
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #ff7a5c;
+}
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--accent) #1e2a36;
+}
+
+/* ========== RESET Y ESTILOS BASE ========== */
+* {
+  box-sizing: border-box;
+  user-select: none;      /* Evita selección de texto en la interfaz */
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Segoe UI', 'Poppins', system-ui, sans-serif;
+  font-size: calc(14px * var(--ui-scale));
+}
+
+/* Contenedor principal del juego */
+.game-container {
+  max-width: 1300px;
+  width: 100%;
+  padding: calc(20px * var(--ui-scale));
+}
+
+/* Canvas: lienzo donde se dibuja el juego (escalado responsivo) */
+canvas {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: calc(28px * var(--ui-scale));
+  box-shadow: 0 20px 35px rgba(0,0,0,0.7), 0 0 0 2px var(--accent), 0 0 0 6px rgba(0,0,0,0.3);
+  background: var(--bg);
+  cursor: crosshair;
+}
+
+/* ========== HUD ========== */
+.hud-panel {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: calc(16px * var(--ui-scale));
+  gap: calc(12px * var(--ui-scale));
+}
+
+.stat-card {
+  background: var(--panel);
+  backdrop-filter: blur(8px);
+  padding: calc(8px * var(--ui-scale)) calc(22px * var(--ui-scale));
+  border-radius: calc(60px * var(--ui-scale));
+  border: 1px solid var(--accent);
+  color: var(--text);
+  font-weight: 600;
+  font-size: calc(0.9rem * var(--ui-scale));
+  box-shadow: 0 5px 15px rgba(0,0,0,0.4);
+}
+
+.weapon-badge {
+  background: #1e2a36;
+  padding: calc(5px * var(--ui-scale)) calc(18px * var(--ui-scale));
+  border-radius: calc(40px * var(--ui-scale));
+  color: var(--accent);
+  font-weight: bold;
+  border-left: 3px solid var(--accent);
+  font-size: calc(0.9rem * var(--ui-scale));
+}
+
+/* Barra de XP */
+.xp-bar-container {
+  width: calc(220px * var(--ui-scale));
+  height: calc(10px * var(--ui-scale));
+  background: #2a3444;
+  border-radius: calc(20px * var(--ui-scale));
+  overflow: hidden;
+  margin: calc(6px * var(--ui-scale)) 0 calc(2px * var(--ui-scale));
+}
+.xp-fill {
+  height: 100%;
+  background: var(--xp-bar);
+  width: 0%;
+  border-radius: calc(20px * var(--ui-scale));
+  box-shadow: 0 0 6px var(--xp-bar);
+}
+
+/* ========== BOTONES ========== */
+button {
+  background: var(--accent);
+  border: none;
+  padding: calc(6px * var(--ui-scale)) calc(18px * var(--ui-scale));
+  border-radius: calc(40px * var(--ui-scale));
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 3px 0 #9b2a15;
+  color: var(--text);
+  font-size: calc(0.85rem * var(--ui-scale));
+  transition: 0.05s linear;
+}
+button:active {
+  transform: translateY(2px);
+  box-shadow: 0 1px 0 #7a1f0e;
+}
+
+/* ========== MENÚS OVERLAY ========== */
+.overlay-menu {
+  position: fixed;
+  inset: 0;
+  background: rgba(11, 15, 20, 0.96);
+  backdrop-filter: blur(12px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 200;
+  visibility: hidden;
+  opacity: 0;
+  transition: 0.2s;
+}
+.overlay-menu.show {
+  visibility: visible;
+  opacity: 1;
+}
+
+.menu-card {
+  background: var(--panel);
+  padding: calc(24px * var(--ui-scale)) calc(32px * var(--ui-scale));
+  border-radius: calc(48px * var(--ui-scale));
+  max-width: 1100px;
+  width: 90%;
+  border: 2px solid var(--accent);
+  color: var(--text);
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 20px 40px black;
+}
+
+/* Grid de estadísticas (pausa) */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: calc(20px * var(--ui-scale));
+  margin: calc(20px * var(--ui-scale)) 0;
+}
+.stat-block {
+  background: #0f1822;
+  border-radius: calc(28px * var(--ui-scale));
+  padding: calc(16px * var(--ui-scale));
+  border-left: 5px solid var(--accent);
+}
+.stat-block h4 {
+  color: var(--accent);
+  margin-bottom: calc(12px * var(--ui-scale));
+  font-size: calc(1.1rem * var(--ui-scale));
+}
+.stat-row {
+  display: flex;
+  justify-content: space-between;
+  margin: calc(6px * var(--ui-scale)) 0;
+  font-size: calc(13px * var(--ui-scale));
+  color: var(--text);
+}
+
+/* Grid para las mejoras (nivel) */
+.choice-grid {
+  display: flex;
+  gap: calc(16px * var(--ui-scale));
+  margin: calc(20px * var(--ui-scale)) 0;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.upgrade-card {
+  flex: 1;
+  min-width: 180px;
+  background: #0f1822;
+  border-radius: calc(28px * var(--ui-scale));
+  padding: calc(16px * var(--ui-scale));
+  border: 2px solid #3f4e66;
+  cursor: pointer;
+  transition: 0.1s;
+  color: var(--text);
+}
+.upgrade-card:hover {
+  transform: scale(1.02);
+  background: #1a2533;
+  border-color: var(--accent);
+}
+/* Mejoras especiales de armas (borde izquierdo más ancho) */
+.weapon-upgrade {
+  border-left: 8px solid var(--accent);
+  background: linear-gradient(135deg, #1a2533, #0f1822);
+}
+
+/* Rarezas de mejoras (colores y sombras) */
+.rarity-tag { font-weight: 800; margin-bottom: calc(6px * var(--ui-scale)); }
+.common { color: #b0b0b0; }
+.uncommon { color: #6fda9f; }
+.rare { color: #5db9ff; }
+.epic { color: #c58aff; }
+.legend { color: #ffb347; }
+
+/* Fila flexible para botones */
+.flex-row {
+  display: flex;
+  gap: calc(16px * var(--ui-scale));
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: calc(16px * var(--ui-scale)) 0;
+}
+
+/* Ajustes (toggle switch) */
+.setting-row {
+  display: flex;
+  align-items: center;
+  gap: calc(12px * var(--ui-scale));
+  margin: calc(12px * var(--ui-scale)) 0;
+  color: var(--text);
+}
+.toggle-switch {
+  width: calc(40px * var(--ui-scale));
+  height: calc(20px * var(--ui-scale));
+  background: #2a3444;
+  border-radius: calc(20px * var(--ui-scale));
+  display: inline-block;
+  cursor: pointer;
+  position: relative;
+}
+.toggle-switch.active { background: var(--accent); }
+.toggle-switch::after {
+  content: "";
+  width: calc(16px * var(--ui-scale));
+  height: calc(16px * var(--ui-scale));
+  background: white;
+  border-radius: 50%;
+  position: absolute;
+  top: calc(2px * var(--ui-scale));
+  left: calc(2px * var(--ui-scale));
+  transition: 0.1s;
+}
+.toggle-switch.active::after { left: calc(22px * var(--ui-scale)); }
+
+/* Lista de logros */
+.achievements-list {
+  max-height: 300px;
+  overflow-y: auto;
+  margin-top: 10px;
+}
+.achievement-item {
+  background: #0a111a;
+  border-radius: calc(16px * var(--ui-scale));
+  padding: calc(10px * var(--ui-scale));
+  margin-bottom: calc(8px * var(--ui-scale));
+  border-left: 3px solid;
+  color: var(--text);
+}
+.achievement-locked { border-left-color: #555; opacity: 0.7; }
+.achievement-unlocked { border-left-color: var(--accent); background: #16212e; }
+
+/* Selector de armas (menú inicio) */
+.weapon-selector {
+  background: #0f1822;
+  border-radius: calc(32px * var(--ui-scale));
+  padding: calc(12px * var(--ui-scale)) calc(20px * var(--ui-scale));
+  margin-top: calc(10px * var(--ui-scale));
+  border: 1px solid var(--accent);
+}
+.selector-group {
+  margin: calc(12px * var(--ui-scale)) 0;
+  display: flex;
+  align-items: center;
+  gap: calc(12px * var(--ui-scale));
+  flex-wrap: wrap;
+  color: var(--text);
+}
+select {
+  background: #1e2a36;
+  color: var(--text);
+  padding: calc(6px * var(--ui-scale)) calc(16px * var(--ui-scale));
+  border-radius: calc(40px * var(--ui-scale));
+  border: 1px solid var(--accent);
+  font-size: calc(0.85rem * var(--ui-scale));
+}
+
+/* Leyenda de zombies */
+.zombie-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+  margin-top: 8px;
+}
+.zl-item {
+  font-size: calc(12px * var(--ui-scale));
+  padding: calc(4px * var(--ui-scale)) calc(14px * var(--ui-scale));
+  background: #121a24;
+  border: 1px solid var(--accent);
+  border-radius: calc(40px * var(--ui-scale));
+  color: var(--text);
+  display: inline-block;
+  margin-right: 4px;
+  margin-bottom: 4px;
+}
+
+/* Varios */
+#statusIcons { color: var(--accent); font-weight: bold; }
+.stat-card span, .stat-card div { color: var(--text); }
+.weapon-preview { color: var(--text-sec); font-size: calc(0.8rem * var(--ui-scale)); margin-left: 8px; }
+.info-text { text-align: center; margin-top: 6px; color: #7a8ca3; font-size: calc(12px * var(--ui-scale)); }
+.close-pause { background: var(--accent); margin-top: calc(20px * var(--ui-scale)); }
+.slider { width: calc(200px * var(--ui-scale)); cursor: pointer; }
