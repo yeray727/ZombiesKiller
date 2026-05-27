@@ -23,7 +23,7 @@
 
 ## Pantalla de juego
 
-![Pantalla de juego](assets/screenshots/gameplay.png)
+![Pantalla de juego](docs/assets/screenshots/gameplay.png)
 
 *Ejemplo de una oleada media.*
 
