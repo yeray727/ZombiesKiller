@@ -1,4 +1,4 @@
-# 🧟 ZombiesKiller - OLEADAS: INFIERNO
+# ZombiesKiller - OLEADAS: INFIERNO
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 ![Version](https://img.shields.io/badge/version-1.0.0-blue)
@@ -9,7 +9,7 @@
 
 ---
 
-## 📋 Requisitos de software
+## Requisitos de software
 
 - **Navegador web moderno** (Google Chrome, Firefox, Edge, Safari) con soporte para HTML5, CSS3 y ES6.
 - **No requiere** Node.js, Java, Docker ni servidor web. Se ejecuta directamente en el navegador abriendo el archivo `index.html`.
@@ -17,7 +17,7 @@
 
 ---
 
-## 🚀 Pasos para el despliegue en local
+## Pasos para el despliegue en local
 
 1. **Descargar o clonar el repositorio:**
    ```bash
@@ -33,7 +33,7 @@ Método 2: Si usas VS Code, instala la extensión "Live Server" y haz clic derec
 
 Nota: No se requiere configuración de variables de entorno.
 
-🎮 Controles básicos
+Controles básicos
 Acción	Tecla / Ratón
 Moverse	WASD o Flechas
 Disparar / Atacar	Mantener clic izquierdo
@@ -41,7 +41,7 @@ Cambiar arma	1 (largo), 2 (corto), 3 (cuerpo a cuerpo)
 Dash (esquive rápido)	Shift
 Patada	C
 Pausa / Menú	ESC
-📂 Estructura del proyecto y arquitectura
+Estructura del proyecto y arquitectura
 text
 ZombiesKiller/
 ├── index.html       # Estructura principal del juego y menús
@@ -58,7 +58,7 @@ Arquitectura por componentes: Separación clara entre lógica de juego (game.js)
 
 Para más detalles, consulta docs/architecture.md.
 
-📖 Documentación de API (funciones públicas)
+Documentación de API (funciones públicas)
 Al no haber backend, la "API" se refiere a las funciones globales expuestas por el juego para ser usadas en pruebas o ampliaciones:
 
 Función / Variable	Tipo	Descripción
@@ -72,8 +72,8 @@ spawnWave()	function	Genera una nueva oleada de zombies.
 showLevelUpMenu()	function	Muestra el menú de mejora al subir de nivel.
 Para una referencia completa, consulta docs/api-documentation.md.
 
-🧪 Mantenibilidad y tests (cómo añadir nuevas funcionalidades)
-➕ Añadir un nuevo tipo de zombie
+Mantenibilidad y tests (cómo añadir nuevas funcionalidades)
+Añadir un nuevo tipo de zombie
 En game.js, localiza la función pickZombieType() y añade el nuevo tipo a la lista pool con su peso de aparición.
 
 En spawnWave(), define su configuración (hp, speed, r, color, score, baseDmg).
@@ -82,21 +82,21 @@ En update(), añade sus comportamientos especiales (si aplica) en el bloque de I
 
 En damageZombie(), añade efectos especiales al morir (explosión, etc.).
 
-➕ Añadir una nueva arma
+Añadir una nueva arma
 En WEAPON_CATALOG, añade un nuevo objeto con nombre, categoría, daño, cadencia, etc.
 
 En shootWeapon(), la lógica genérica ya soporta cualquier arma de proyectil o melee (según su categoría).
 
-➕ Añadir una nueva mejora
+Añadir una nueva mejora
 En GENERIC_UPGRADES o en el array de mejoras por arma, añade un objeto con name, desc y una función apply(rarity) que modifique las estadísticas del jugador.
 
 La función showLevelUpMenu() elegirá aleatoriamente entre las mejoras disponibles.
 
-🧪 Pruebas
+Pruebas
 No hay pruebas automáticas. Para validar cambios, ejecuta el juego en el navegador y comprueba comportamientos. Se recomienda usar las herramientas de desarrollador (F12) para depurar.
 
-🗂️ Historial de versiones
+Historial de versiones
 Véase el archivo CHANGELOG.md.
 
-📜 Licencia
+Licencia
 MIT © [Tu nombre] – Puedes usar, modificar y distribuir libremente.
