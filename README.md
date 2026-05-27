@@ -5,8 +5,6 @@
 
 **Juego de defensa por oleadas con mecánicas de mejora, logros y zombies con habilidades especiales.**
 
-> Proyecto desarrollado para la asignatura "El Relevo del Desarrollador". El juego está preparado para ser transferido a un nuevo equipo de mantenimiento, con documentación completa y código modular.
-
 ---
 
 ## Requisitos de software
@@ -21,7 +19,7 @@
 
 1. **Descargar o clonar el repositorio:**
    ```bash
-   git clone https://github.com/tu-usuario/ZombiesKiller.git
+   git clone https://github.com/yeray727/ZombiesKiller.git
    cd ZombiesKiller
 Abrir el juego:
 
