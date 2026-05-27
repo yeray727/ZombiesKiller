@@ -97,4 +97,4 @@ Historial de versiones
 Véase el archivo CHANGELOG.md.
 
 Licencia
-MIT © [Tu nombre] – Puedes usar, modificar y distribuir libremente.
+MIT © [yeray727] – Puedes usar, modificar y distribuir libremente.
