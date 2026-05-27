@@ -86,5 +86,3 @@ Cuando tu vida llega a 0, aparece la pantalla de "Game Over" con tu oleada final
 - **Cambia de arma** según la situación: usa escopeta o lanzallamas para grupos, francotirador para zombies lejanos.
 - **Prioriza mejoras defensivas** en oleadas altas (defensa, escudo, regeneración).
 - **Los power-ups de vampiro e imán** son muy útiles para recuperar vida y XP rápidamente.
-
-¡Disfruta matando zombies! 🧟‍♂️🔫
