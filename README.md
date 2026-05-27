@@ -42,12 +42,12 @@ Pausa / Menú	ESC
 Estructura del proyecto y arquitectura
 text
 ZombiesKiller/
-├── index.html       # Estructura principal del juego y menús
-├── style.css        # Estilos visuales (UI, paneles, overlays)
-├── game.js          # Lógica completa del juego (motor, colisiones, IA)
-├── README.md        # Este archivo
-├── CHANGELOG.md     # Historial de versiones
-└── docs/            # Documentación técnica y manuales
+- ├── index.html       # Estructura principal del juego y menús
+- ├── style.css        # Estilos visuales (UI, paneles, overlays)
+- ├── game.js          # Lógica completa del juego (motor, colisiones, IA)
+- ├── README.md        # Este archivo
+- ├── CHANGELOG.md     # Historial de versiones
+- └── docs/            # Documentación técnica y manuales
 Patrón de diseño:
 
 Frontend MVC ligero: El canvas actúa como la Vista (draw()), el objeto player y arrays (zombies, projectiles) son el Modelo, y la función update() junto con los controladores de eventos actúan como Controlador.
