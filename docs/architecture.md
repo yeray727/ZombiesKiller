@@ -34,24 +34,4 @@ Se ha seguido un **patrón MVC adaptado al canvas**:
 4. `draw()` renderiza el nuevo estado.
 5. El bucle `requestAnimationFrame` repite los pasos 3 y 4.
 
-┌─────────────────┐       ┌─────────────────┐
-│     Player      │       │     Zombie      │
-├─────────────────┤       ├─────────────────┤
-│ - x, y, w, h    │       │ - type          │
-│ - hp, maxHp     │       │ - x, y, r       │
-│ - speed         │       │ - hp, maxHp     │
-│ - damageMult    │       │ - damage        │
-│ - ...           │       │ - attackTimer   │
-└─────────────────┘       └─────────────────┘
-         │                           │
-         │ uses                      │ uses
-         ▼                           ▼
-┌─────────────────┐       ┌─────────────────┐
-│   Projectile    │       │    PowerUp      │
-├─────────────────┤       ├─────────────────┤
-│ - x, y, vx, vy  │       │ - type          │
-│ - dmg, range    │       │ - x, y          │
-│ - isFire        │       │ - timer         │
-└─────────────────┘       └─────────────────┘
-
 Para más detalles, consultar el código fuente comentado.
