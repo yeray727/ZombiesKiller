@@ -10,8 +10,7 @@
 ## Requisitos de software
 
 - **Navegador web moderno** (Google Chrome, Firefox, Edge, Safari) con soporte para HTML5, CSS3 y ES6.
-- **No requiere** Node.js, Java, Docker ni servidor web. Se ejecuta directamente en el navegador abriendo el archivo `index.html`.
-- **Opcional**: Servidor local (Live Server de VS Code) para desarrollo, pero no necesario.
+- Se ejecuta directamente en el navegador abriendo el archivo `index.html`.
 
 ---
 
