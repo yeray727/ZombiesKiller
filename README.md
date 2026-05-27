@@ -41,7 +41,7 @@ Patada	C
 Pausa / Menú	ESC
 Estructura del proyecto y arquitectura
 text
-ZombiesKiller/
+- ZombiesKiller/
 - ├── index.html       # Estructura principal del juego y menús
 - ├── style.css        # Estilos visuales (UI, paneles, overlays)
 - ├── game.js          # Lógica completa del juego (motor, colisiones, IA)
