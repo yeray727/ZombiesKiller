@@ -57,7 +57,5 @@ mousemove: actualiza la posición del ratón (para el ángulo de disparo).
 
 mousedown (botón izquierdo): activa el disparo continuo.
 
-mouseup: detiene el disparo continuo.
-
 Cómo extender
 Para añadir una nueva arma, basta con agregar su definición en WEAPON_CATALOG al inicio de game.js. El resto de la lógica (disparo, proyectiles) es genérica.
