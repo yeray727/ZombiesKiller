@@ -25,7 +25,6 @@
 
 ![Pantalla de juego](../assets/screenshots/gameplay.png)
 
-*Ejemplo de una oleada media.*
 
 ## Barra de estado (HUD)
 
