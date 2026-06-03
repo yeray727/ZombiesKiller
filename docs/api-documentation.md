@@ -7,7 +7,7 @@ Aunque el juego no tiene backend, se exponen las siguientes funciones y objetos 
 ### `player`
 ```javascript
 {
-  x, y, w, h,           // posición y tamaño (hitbox cuadrada)
+  x, y, w, h,           // posición y tamaño
   hp, maxHp,            // vida actual y máxima
   speed,                // velocidad de movimiento
   damageMult, fireRateMult, critChance,  // multiplicadores
