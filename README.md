@@ -72,18 +72,18 @@ Para una referencia completa, consulta docs/api-documentation.md.
 
 Mantenibilidad y tests (cómo añadir nuevas funcionalidades)
 Añadir un nuevo tipo de zombie
-En game.js, localiza la función pickZombieType() y añade el nuevo tipo a la lista pool con su peso de aparición.
+En game.js, localiza la función pickZombieType() y añade el nuevo tipo a la lista pool con su tiempo de aparición.
 
 En spawnWave(), define su configuración (hp, speed, r, color, score, baseDmg).
 
-En update(), añade sus comportamientos especiales (si aplica) en el bloque de IA.
+En update(), añade sus comportamientos especiales en el bloque de IA.
 
-En damageZombie(), añade efectos especiales al morir (explosión, etc.).
+En damageZombie(), añade efectos especiales al morir.
 
 Añadir una nueva arma
 En WEAPON_CATALOG, añade un nuevo objeto con nombre, categoría, daño, cadencia, etc.
 
-En shootWeapon(), la lógica genérica ya soporta cualquier arma de proyectil o melee (según su categoría).
+En shootWeapon(), la lógica genérica ya soporta cualquier arma de proyectil o melee.
 
 Añadir una nueva mejora
 En GENERIC_UPGRADES o en el array de mejoras por arma, añade un objeto con name, desc y una función apply(rarity) que modifique las estadísticas del jugador.
