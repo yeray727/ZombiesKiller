@@ -49,8 +49,6 @@ ZombiesKiller/
 ```
 Patrón de diseño:
 
-Frontend MVC ligero: El canvas actúa como la Vista (draw()), el objeto player y arrays (zombies, projectiles) son el Modelo, y la función update() junto con los controladores de eventos actúan como Controlador.
-
 Arquitectura por componentes: Separación clara entre lógica de juego (game.js), presentación HTML/CSS y eventos.
 
 Para más detalles, consulta docs/architecture.md.
