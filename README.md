@@ -36,6 +36,7 @@ Cambiar arma	1 (largo), 2 (corto), 3 (cuerpo a cuerpo)
 Dash (esquive rápido)	Shift
 Patada	C
 Pausa / Menú	ESC
+
 Estructura del proyecto y arquitectura
 ```text
 ZombiesKiller/
