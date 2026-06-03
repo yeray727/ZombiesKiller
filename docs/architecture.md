@@ -17,7 +17,6 @@ Se ha seguido un **patrón MVC adaptado al canvas**:
 ## Justificación de la arquitectura
 
 - **Separación de responsabilidades**: El código está dividido en bloques lógicos (actualización, dibujo, eventos), facilitando la localización de errores y la adición de nuevas características.
-- **Modularidad**: Aunque no se usan módulos ES6, la encapsulación en una IIFE evita colisiones globales.
 - **Escalabilidad**: Añadir un nuevo tipo de zombie o arma requiere cambios localizados en funciones específicas (`pickZombieType`, `spawnWave`, `WEAPON_CATALOG`).
 
 ## Convenciones de código
