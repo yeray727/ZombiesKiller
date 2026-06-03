@@ -88,9 +88,6 @@ En GENERIC_UPGRADES o en el array de mejoras por arma, añade un objeto con name
 
 La función showLevelUpMenu() elegirá aleatoriamente entre las mejoras disponibles.
 
-Pruebas
-No hay pruebas automáticas. Para validar cambios, ejecuta el juego en el navegador y comprueba comportamientos. Se recomienda usar las herramientas de desarrollador (F12) para depurar.
-
 Historial de versiones
 Véase el archivo CHANGELOG.md.
 
