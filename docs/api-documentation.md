@@ -13,7 +13,6 @@ Aunque el juego no tiene backend, se exponen las siguientes funciones y objetos 
   damageMult, fireRateMult, critChance,  // multiplicadores
   damageReduction, shield, hpRegen,      // defensa
   currentWeapon, shootCooldown,          // arma activa
-  ... // flags de mejoras
 }
 zombies
 Array de objetos zombie. Cada zombie tiene:
