@@ -66,8 +66,9 @@ applyDamageToPlayer()	      # function	Aplica daño al jugador respetando reducc
 shootWeapon()	function	      # Dispara el arma activa según el ángulo del ratón.
 spawnWave()	function	         # Genera una nueva oleada de zombies.
 showLevelUpMenu()	function	   # Muestra el menú de mejora al subir de nivel.
-Para una referencia completa, consulta docs/api-documentation.md.
 ```
+
+Para una referencia completa, consulta docs/api-documentation.md.
 
 Mantenibilidad y tests (cómo añadir nuevas funcionalidades)
 Añadir un nuevo tipo de zombie
