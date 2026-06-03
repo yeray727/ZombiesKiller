@@ -57,15 +57,15 @@ Documentación de API (funciones públicas)
 Al no haber backend, la "API" se refiere a las funciones globales expuestas por el juego para ser usadas en pruebas o ampliaciones:
 
 ```text
-Función / Variable   # Tipo	Descripción
-player	Objecto      # Propiedades del jugador (vida, velocidad, armas, mejoras).
-zombies	Array      # Lista de zombies activos.
-projectiles	Array      # Proyectiles del jugador.
-damageZombie()	function   # Inflige daño a un zombie y maneja efectos (explosión, quemadura, etc.).
-applyDamageToPlayer()   # function	Aplica daño al jugador respetando reducción y escudo.
-shootWeapon()	function   # Dispara el arma activa según el ángulo del ratón.
-spawnWave()	function   # Genera una nueva oleada de zombies.
-showLevelUpMenu()	function   # Muestra el menú de mejora al subir de nivel.
+Función / Variable           # Tipo	Descripción
+player Objecto               # Propiedades del jugador (vida, velocidad, armas, mejoras).
+zombies Array                # Lista de zombies activos.
+projectiles	Array            # Proyectiles del jugador.
+damageZombie() function      # Inflige daño a un zombie y maneja efectos (explosión, quemadura, etc.).
+applyDamageToPlayer()        # function	Aplica daño al jugador respetando reducción y escudo.
+shootWeapon() function       # Dispara el arma activa según el ángulo del ratón.
+spawnWave()	function         # Genera una nueva oleada de zombies.
+showLevelUpMenu() function   # Muestra el menú de mejora al subir de nivel.
 ```
 
 Para una referencia completa, consulta docs/api-documentation.md.
