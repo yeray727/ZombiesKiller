@@ -26,9 +26,7 @@ Método 1: Haz doble clic en el archivo index.html.
 
 Método 2: Si usas VS Code, instala la extensión "Live Server" y haz clic derecho sobre index.html → "Open with Live Server".
 
-¡Jugar! Usa el ratón y el teclado (ver controles en el menú de pausa o la sección de abajo).
-
-Nota: No se requiere configuración de variables de entorno.
+Usa el ratón y el teclado (ver controles en el menú de pausa o la sección de abajo).
 
 Controles básicos
 Acción	Tecla / Ratón
